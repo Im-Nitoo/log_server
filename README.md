@@ -5,16 +5,22 @@ This Flask-based log server receives and stores logs from the Windows-based keyl
 
 ## Features
 
-Receives keylogger logs via HTTP POST or SMTP email.
-Stores logs in a local file (e.g., server_logs.txt) with timestamps.
-Lightweight and customizable for local or remote setups.
+Receives keylogger logs via HTTP POST or SMTP email.  
+
+Stores logs in a local file (e.g., `server_logs.txt`) with timestamps.  
+
+Lightweight and customizable for local or remote setups.  
+
 Supports ethical use in cybersecurity labs.
 
 ## Requirements
 
 **OS**: Any OS supporting Python (tested on Windows 11)
+
 **Python**: Version 3.6 or higher
+
 **Dependencies**: Flask (pip install flask), smtplib (standard library for SMTP)
+
 **Network**: Local network access or internet for remote/SMTP setup
 
 ## Installation
