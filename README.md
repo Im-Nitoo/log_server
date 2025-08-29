@@ -28,12 +28,11 @@ pip install flask
 
 4. Clone or download the repository:
 
-```bash
-<pre>
+<pre>```
 git clone <repository-url>
 cd log-server
-</pre>
-```
+```</pre>
+
 
 
 
