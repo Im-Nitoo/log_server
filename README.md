@@ -22,38 +22,47 @@ Supports ethical use in cybersecurity labs.
 1. Install Python 3.6+ from python.org.
 
 2. Install Flask:
+```bash
 pip install flask
+```
 
-
-3. Clone or download the repository:
+4. Clone or download the repository:
+<pre>
+```bash
 git clone <repository-url>
 cd log-server
+```
+</pre>
 
 
-4. Ensure the keylogger is configured to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or an email address for SMTP.
+5. Ensure the keylogger is configured to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or an email address for SMTP.
 
 
 ## Usage
 
 1. Run the Flask server:
+```bash
 python log_server.py
+```
 
 
-2. The server starts at http://127.0.0.1:5000 (or a specified IP like 192.168.1.3:5000).
+3. The server starts at http://127.0.0.1:5000 (or a specified IP like 192.168.1.3:5000).
 
-3. Logs are received at the /log endpoint (HTTP POST) or via email (SMTP) and saved to server_logs.txt.
+4. Logs are received at the /log endpoint (HTTP POST) or via email (SMTP) and saved to server_logs.txt.
 
-4. Stop the server with Ctrl+C.
+5. Stop the server with Ctrl+C.
 
 
 ## Customization
 **Local Server**
 
 1. Default setup runs locally:
+```bash
 python log_server.py
+```
 
 
-2. Update the keylogger’s URL to match the server’s IP/port (e.g., http://192.168.1.3:5000/log).
+3. Update the keylogger’s URL to match the server’s IP/port (e.g., http://192.168.1.3:5000/log).
 
 
 **SMTP Email Transmission**
