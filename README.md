@@ -1,7 +1,7 @@
 # Keylogger Log Server
 
 ## Overview
-This Flask-based log server receives and stores logs from the Windows-based keylogger (keylogger.c). It supports local operation (e.g., http://127.0.0.1:5000 or http://192.168.1.3:5000), SMTP email transmission, or remote server deployment for receiving logs. The server is designed for educational and ethical auditing purposes in controlled environments with explicit permission.
+This Flask-based log server receives and stores logs from the Windows-based keylogger (keylogger.c). It supports local operation (e.g., [http://<your-server-ip>:5000}), SMTP email transmission, or remote server deployment for receiving logs. The server is designed for educational and ethical auditing purposes in controlled environments with explicit permission.
 
 ## Features
 
