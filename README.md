@@ -42,7 +42,7 @@ cd log-server
 
 
 
-5. Ensure the keylogger is configured to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or an email address for SMTP.
+5. Ensure the keylogger is configured to send logs to the server’s URL (e.g.,[http://<your-server-ip>:5000]log) or an email address for SMTP.
 
 
 ## Usage
@@ -53,7 +53,7 @@ python log_server.py
 ```
 
 
-3. The server starts at http://127.0.0.1:5000 (or a specified IP like 192.168.1.3:5000).
+3. The server starts at http://<your-server-ip>:5000.
 
 4. Logs are received at the /log endpoint (HTTP POST) or via email (SMTP) and saved to server_logs.txt.
 
@@ -69,7 +69,7 @@ python log_server.py
 ```
 
 
-3. Update the keylogger’s URL to match the server’s IP/port (e.g., http://192.168.1.3:5000/log).
+3. Update the keylogger’s URL to match the server’s IP/port (e.g., http://<your-server-ip>:5000/log).
 
 
 **SMTP Email Transmission**
