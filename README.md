@@ -27,12 +27,14 @@ pip install flask
 ```
 
 4. Clone or download the repository:
-<pre>
+
 ```bash
+<pre>
 git clone <repository-url>
 cd log-server
-```
 </pre>
+```
+
 
 
 5. Ensure the keylogger is configured to send logs to the server’s URL (e.g., http://127.0.0.1:5000/log) or an email address for SMTP.
